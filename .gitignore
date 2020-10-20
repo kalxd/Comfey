@@ -1,0 +1,6 @@
+*.un\~
+*.swp
+.git/
+
+node_modules/
+dist/
