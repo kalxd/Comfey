@@ -1,16 +1,32 @@
 const gulp = require("gulp");
 const less = require("gulp-less");
+const nunjucks = require("gulp-nunjucks");
 
-const build = cb => {
+const buildCss = () => {
 	return gulp.src("src/main.less")
 		.pipe(less())
 		.pipe(gulp.dest("dist/Comfey.css"))
 	;
 };
 
-const watch = () => {
-	return gulp.watch("src/**/*.less", build);
+const buildHtml = () => {
+	return gulp.src("build/index.njk")
+		.pipe(nunjucks.compile())
+		.pipe(gulp.dest("dist"))
+	;
 };
 
-exports.default = build;
-exports.watch = watch;
+const watchLess = () => gulp.watch("src/**/*.less", buildCss);
+
+const watchHtml = () => gulp.watch("build/**/*.njk", buildHtml);
+
+const watch = gulp.parallel(watchLess, watchHtml);
+
+const build = gulp.series(buildCss, buildHtml);
+
+module.exports = {
+	default: build,
+	buildCss,
+	buildHtml,
+	watch
+};

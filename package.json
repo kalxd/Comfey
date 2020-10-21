@@ -1,10 +1,13 @@
 {
 	"scripts": {
 		"watch": "./node_modules/.bin/gulp watch",
+		"build-css": "./node_modules/.bin/gulp buildCss",
+		"build-html": "./node_modules/.bin/gulp buildHtml",
 		"build": "./node_modules/.bin/gulp"
 	},
 	"devDependencies": {
 		"gulp": "^4.0.2",
-		"gulp-less": "^4.0.1"
+		"gulp-less": "^4.0.1",
+		"gulp-nunjucks": "^5.1.0"
 	}
 }
