@@ -8,7 +8,8 @@
 <body>
 	{% set hello = 2 %}
 	<h1>{{ hello }}</h1>
-	{% set colors = ["red", "green", "blue", "yellow", "orange", "purple", "cyan"] %}
-	<button class="button">button</button>
+	{% for color in colorSet %}
+		<button class="button {{ color }}">button</button>
+	{% endfor %}
 </body>
 </html>
