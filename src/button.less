@@ -1,12 +1,13 @@
 @import "./var.less";
 @import "./f.less";
 
-.mk-button(@color, @deep-color) {
+.mk-button(@color) {
+	@dark-color: darken(@color, 20%);
 	.color-on(@color);
 
 	&:hover {
-		background-color: @deep-color;
-		box-shadow+: 0 0 10px 2px fade(@deep-color, 20%);
+		background-color: @dark-color;
+		box-shadow+: 0 0 10px 2px fade(@dark-color, 20%);
 	}
 }
 
@@ -16,18 +17,12 @@
 	border-radius: 4px;
 	transition+: background-color 1s;
 	transition+: box-shadow 1s;
-	.color-on(@white);
-
-	&:hover {
-		background-color: darken(@white, 16%);
-		box-shadow: 0 0 10 2px fade(@black, 20%);
-	}
+	.mk-button(@white);
 
 	// 其他颜色。
 	each(@color-map, {
 		&.@{key} {
-			@deep-color: @deep-color-map[$@key];
-			.mk-button(@value, @deep-color);
+			.mk-button(@value);
 		}
 	});
 }
