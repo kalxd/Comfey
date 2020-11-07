@@ -8,8 +8,6 @@
 <body>
 	{% set hello = 2 %}
 	<h1>{{ hello }}</h1>
-	{% for color in colorSet %}
-		<button class="button {{ color }}">button</button>
-	{% endfor %}
+	{% include "./button.njk" %}
 </body>
 </html>
