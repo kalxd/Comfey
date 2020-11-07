@@ -3,6 +3,7 @@ const less = require("gulp-less");
 const nunjucks = require("gulp-nunjucks");
 
 const COLOR_SET = [
+	"white",
 	"red",
 	"green",
 	"blue",
