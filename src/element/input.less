@@ -1,0 +1,33 @@
+@import "../var.less";
+
+.mk-input(@color) {
+	@dark-color: darken(@color, 20%);
+
+	border: 1px solid @color;
+	color: @color;
+	border-color: @color;
+
+	&:hover {
+		border-color: @dark-color;
+	}
+
+	&:focus {
+		box-shadow: 0 0 4px 2px fade(@dark-color, 20%);
+	}
+}
+
+._.input {
+	.pad-box();
+	border-width: 1px;
+	border-style: solid;
+	transition+: color 1s;
+	transition+: border-color 1s;
+	transition+: box-shadow 1s;
+	.mk-input(@black);
+
+	each(@color-map, {
+		&.@{key} {
+			.mk-input(@value);
+		}
+	});
+}
