@@ -4,11 +4,39 @@
 @black: #161823;
 @white: #f0f0f4;
 
-@red: #db5a6b;
-@green: #16a951;
-@blue: #177cb0;
+@red: #db5a6b; // 海棠红
+@green: #16a951; // 石绿
+@blue: #177cb0; // 靛青
+@yellow: #faff72; // 鸭黄
+@orange: #fa8c35; // 橙色
+@purple: #801dae; // 青莲
+@cyan: #1bd1a5; // 碧色
 
+@deep-red: #c93756; // 樱桃色
+@deep-green: #057748; // 松花绿
+@deep-blue: #065279; // 靛蓝
+@deep-yellow: #fff143; // 鹅黄
+@deep-orange: #ff7500; // 橘红
+@deep-purple: #815476; // 酱紫
+@deep-cyan: #48c0a3; // 青碧
 /** 结束配色 */
 
-/** 变量合集 */
-@colorset: @red, @green, @blue;
+@color-map: {
+	red: @red;
+	green: @green;
+	blue: @blue;
+	yellow: @yellow;
+	orange: @orange;
+	purple: @purple;
+	cyan: @cyan;
+}
+
+@deep-color-map: {
+	red: @deep-red;
+	green: @deep-green;
+	blue: @deep-blue;
+	yellow: @deep-yellow;
+	orange: @deep-orange;
+	purple: @deep-purple;
+	cyan: @deep-cyan;
+}

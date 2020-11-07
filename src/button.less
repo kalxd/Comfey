@@ -1,7 +1,15 @@
 @import "./var.less";
 
 .button {
-	background-color: @blue;
-	color: @white;
-	border-color: darken(@blue, 10%);
+	background-color: @white;
+	color: @black;
+	border-width: 0;
+	padding: .4em .8em;
+	border-radius: 4px;
+
+	each(@color-map, {
+		&.@{key} {
+			background-color: @value;
+		}
+	});
 }
