@@ -1,0 +1,25 @@
+@import "../var.less";
+
+._.input:not(input) {
+	display: inline-flex;
+
+	each(@color-map, {
+		&.@{key} > input {
+			.mk-input(@value);
+		}
+
+		&.@{key} > .button {
+			.mk-button(@value);
+		}
+	});
+}
+
+._.input:not(input) > input {
+	&:extend(input._.input);
+	.flat-border-side(right);
+	border-right-width: 0;
+}
+
+._.input:not(input) > .button {
+	.flat-border-side(left);
+}

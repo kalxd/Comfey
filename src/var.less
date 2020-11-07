@@ -59,4 +59,14 @@
 	padding: .4em .8em;
 	border-radius: 4px;
 }
+
+.flat-border-side(@side) when (@side = left) {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.flat-border-side(@side) when (@side = right) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
 /** 结束常用函数 */

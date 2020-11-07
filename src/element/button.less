@@ -3,6 +3,7 @@
 .mk-button(@color) {
 	@dark-color: darken(@color, 20%);
 	.color-on(@color);
+	border-color: @color;
 
 	&:hover {
 		background-color: @dark-color;
@@ -11,7 +12,8 @@
 }
 
 .button {
-	border-width: 0;
+	border-width: 1px;
+	border-style: solid;
 	padding: .4em .8em;
 	border-radius: 4px;
 	transition+: background-color 1s;
