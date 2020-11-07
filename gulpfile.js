@@ -3,7 +3,7 @@ const less = require("gulp-less");
 const nunjucks = require("gulp-nunjucks");
 
 const buildCss = () => {
-	return gulp.src("src/main.less")
+	return gulp.src("src/comfey.less")
 		.pipe(less())
 		.pipe(gulp.dest("dist"))
 	;
