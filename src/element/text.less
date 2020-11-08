@@ -1,0 +1,9 @@
+@import "../var.less";
+
+._.text {
+	each(@color-map, {
+		&.@{key} {
+			color: @value;
+		}
+	});
+}
