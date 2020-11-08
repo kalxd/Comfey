@@ -1,4 +1,7 @@
 /** 全局变量 */
+@radius: 4px; // 圆角
+@pad-v: .4em; // 垂直内边距
+@pad-h: .8em; // 水平内边距
 
 /** 不知道什么风格的配色 */
 @black: #161823;
@@ -45,19 +48,23 @@
 
 /** 常用函数 */
 
+// 根据背景色，获取醒目的前景色。
+.fg-on(@bg-color) {
+	@text-color: if(lightness(@bg-color) > 70, @black, @white);
+	color: @text-color;
+}
+
 // 在某个背景颜色上的字体颜色，
 // 如果背景颜色过深，字体明亮；反之亦如。
 .color-on(@bg-color) {
-	@text-color: if(lightness(@bg-color) > 70, @black, @white);
-
+	.fg-on(@bg-color);
 	background-color: @bg-color;
-	color: @text-color;
 }
 
 // 常用的内边距及边角设置。
 .pad-box() {
-	padding: .4em .8em;
-	border-radius: 4px;
+	padding: @pad-v @pad-h;
+	border-radius: @radius;
 }
 
 .flat-border-side(@side) when (@side = left) {

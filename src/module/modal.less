@@ -1,0 +1,96 @@
+@import "../var.less";
+
+.paint-dialog-color(@color) {
+	.fg-on(@color);
+
+	& > .title {
+		background-color: darken(@color, 3%);
+	}
+
+	& > .content {
+		background-color: @color;
+	}
+
+	& > .footer {
+		background-color: darken(@color, 2%);
+	}
+}
+
+// 整个对话框的背景。
+._.dimmer {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: fade(@black, 90%);
+	transition+: opacity 1s;
+}
+
+// 默认不显示。
+._.dimmer.transparent {
+	opacity: 0;
+}
+
+// 普通对话框
+._.modal {
+	width: 80%;
+	padding: 0;
+	overflow: auto;
+	.paint-dialog-color(@white);
+	
+	each(@color-map, {
+		&.@{key} {
+			.paint-dialog-color(@value);
+		}
+	});
+}
+
+// 尺寸
+._.modal.small {
+	width: 50%;
+}
+
+._.modal.mini {
+	width: 30%;
+}
+
+._.modal.fit {
+	width: auto;
+}
+
+// 透明度
+._.modal.transparent {
+	.paint-dialog-color(fade(@white, 50%));
+
+	each(@color-map, {
+		&.@{key} {
+			.paint-dialog-color(fade(@value, 60%));
+		}
+	});
+}
+
+// 顶部标题
+._.modal > .title {
+	padding: @pad-v @pad-h;
+	border-radius: @radius @radius 0 0;
+}
+
+// 中间主体内容
+._.modal > .content {
+	padding: @pad-v @pad-h;
+
+	&:first-child {
+		border-radius: @radius @radius 0 0;
+	}
+}
+
+// 底部操作
+._.modal > .footer {
+	padding: @pad-v @pad-h;
+	border-radius: 0 0 @radius @radius;
+	text-align: right;
+}
