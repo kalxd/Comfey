@@ -3,3 +3,13 @@
 {% for color in colorSet %}
 	<input class="_ input {{ color }}" placeholder="{{ color }}">
 {% endfor %}
+
+<hr>
+
+{% for color in colorSet %}
+	<select class="_ input {{ color }}">
+		{% for i in range(1, 6) %}
+			<option>{{ i }}</option>
+		{% endfor %}
+	</select>
+{% endfor %}
