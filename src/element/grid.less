@@ -1,0 +1,32 @@
+@import "../var.less";
+
+// 所有可能宽度
+@col-size: one, two, three, four, five, six, seven, eight, nine, ten;
+
+._.grid {
+	display: flex;
+}
+
+// 允许断行
+._.grid.wrap {
+	flex-wrap: wrap;
+}
+
+// 内边距
+._.grid.padding {
+	& > .col {
+		padding: @pad-v @pad-h;
+	}
+}
+
+._.grid > .col {
+	@base-width: 10%;
+
+	width: @base-width;
+
+	each(@col-size, {
+		&.@{value} {
+			width: @base-width  * @index;
+		}
+	});
+}
