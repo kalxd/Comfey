@@ -1,6 +1,9 @@
 const gulp = require("gulp");
 const less = require("gulp-less");
 const nunjucks = require("gulp-nunjucks");
+const rename = require("gulp-rename");
+
+const pkg = require("./package.json");
 
 const COLOR_SET = [
 	"white",
@@ -21,6 +24,9 @@ const DATA = {
 const buildCss = () => {
 	return gulp.src("src/comfey.less")
 		.pipe(less())
+		.pipe(rename({
+			basename: `comfey-${pkg.version}`
+		}))
 		.pipe(gulp.dest("dist"))
 	;
 };
