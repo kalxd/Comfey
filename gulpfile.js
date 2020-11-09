@@ -25,7 +25,7 @@ const buildCss = () => {
 	return gulp.src("src/comfey.less")
 		.pipe(less())
 		.pipe(rename({
-			basename: `comfey-${pkg.version}`
+			basename: `comfey.${pkg.version}`
 		}))
 		.pipe(gulp.dest("dist"))
 	;
