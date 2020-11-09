@@ -1,4 +1,28 @@
 <h2>按钮</h2>
+
+<button id="button-switch">切换禁用</button>
+
+<div id="button">
+
 {% for color in colorSet %}
 	<button class="_ button {{ color }}">button</button>
 {% endfor %}
+</div>
+
+<script>
+	(function main() {
+		const switchBtn = document.getElementById("button-switch");
+		const buttonSet = document.querySelectorAll("#button ._.button");
+
+		switchBtn.addEventListener("click", _ => {
+			for (const button of buttonSet) {
+				if (button.hasAttribute("disabled")) {
+					button.removeAttribute("disabled");
+				}
+				else {
+					button.setAttribute("disabled", "");
+				}
+			}
+		});
+	})();
+</script>
