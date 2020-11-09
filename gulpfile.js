@@ -38,13 +38,20 @@ const buildHtml = () => {
 	;
 };
 
-const watchLess = () => gulp.watch("src/**/*.less", buildCss);
+const devCss = () => {
+	return gulp.src("src/comfey.less")
+		.pipe(less())
+		.pipe(gulp.dest("dist"))
+	;
+};
+
+const watchLess = () => gulp.watch("src/**/*.less", devCss);
 
 const watchHtml = () => gulp.watch("build/**/*.njk", buildHtml);
 
 const watch = gulp.parallel(watchLess, watchHtml);
 
-const build = gulp.series(buildCss, buildHtml);
+const build = gulp.parallel(buildCss, buildHtml, devCss);
 
 module.exports = {
 	default: build,
