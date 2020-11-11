@@ -12,13 +12,6 @@
 	flex-wrap: wrap;
 }
 
-// 内边距
-._.grid.padding {
-	& > .col {
-		padding: @pad-v @pad-h;
-	}
-}
-
 ._.grid > .col {
 	@base-width: 10%;
 
@@ -30,3 +23,11 @@
 		}
 	});
 }
+// 左右边距
+._.grid.space > .col {
+	@gap-size: .2em;
+
+	margin-left: @gap-size;
+	margin-right: @gap-size;
+}
+
