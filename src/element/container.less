@@ -1,0 +1,18 @@
+@import "../var.less";
+
+.paint-segment(@color) {
+	border-color: @color;
+}
+
+._.segment {
+	.pad-box();
+	border-width: 2px;
+	border-style: solid;
+	.paint-segment(@black);
+
+	each(@color-map, {
+		&.@{key} {
+			.paint-segment(@value);
+		}
+	});
+}
