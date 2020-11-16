@@ -1,6 +1,6 @@
 @import "../var.less";
 
-.mk-button(@color) {
+.paint-button(@color) {
 	@dark-color: darken(@color, 20%);
 	.color-on(@color);
 	border-color: @color;
@@ -18,16 +18,17 @@
 	border-radius: 4px;
 	transition+: background-color 1s;
 	transition+: box-shadow 1s;
-	.mk-button(@white);
+	.paint-button(@white);
 
 	// 其他颜色。
 	each(@color-map, {
 		&.@{key} {
-			.mk-button(@value);
+			.paint-button(@value);
 		}
 	});
 }
 
-._.button:disabled {
+._.button:disabled,
+._.button.disabled {
 	filter: grayscale(.6);
 }

@@ -5,11 +5,11 @@
 
 	each(@color-map, {
 		&.@{key} > input {
-			.mk-input(@value);
+			.paint-input(@value);
 		}
 
 		&.@{key} > .button {
-			.mk-button(@value);
+			.paint-button(@value);
 		}
 	});
 }
