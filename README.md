@@ -1,6 +1,6 @@
 # Comfey #
 
-![Comfey](https://s1.52poke.wiki/wiki/c/c9/764Comfey.png)
+![Comfey](https://media.52poke.com/wiki/6/6f/764Comfey_Dream.png)
 
 该项目不是完整的CSS框架，只提供极少样式，以达到最小要求的布局、视觉要求；覆盖面不广，她同样不适用于任何网站开发。
 她唯一作用便是嵌入到其他网站，作为一种补充而存在——其实就是方便写油猴脚本时快速构建一个界面。
