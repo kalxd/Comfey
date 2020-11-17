@@ -1,6 +1,7 @@
 *.un\~
 *.swp
 .git/
+.log/
 
 node_modules/
 dist/
