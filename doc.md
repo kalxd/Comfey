@@ -1,5 +1,5 @@
 ---
-title: comfey(0.0.2)简明手册
+title: comfey(0.0.4)简明手册
 author: 荀徒之
 documentclass: morelull
 numbersection: true
@@ -112,4 +112,17 @@ select._.input, input._.input
 ._.modal.fit
 
 ._.modal.@{color}
+```
+
+### 侧边栏 ###
+
+```css
+._.sidebar.left
+._.sidebar.right
+
+._.sidebar.hide
+
+._.sidebar > .anchor.top
+
+._.sidebar > .anchor.bottom
 ```

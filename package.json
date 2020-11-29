@@ -1,5 +1,5 @@
 {
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"scripts": {
 		"watch": "./node_modules/.bin/gulp watch",
 		"build-css": "./node_modules/.bin/gulp buildCss",
