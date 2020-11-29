@@ -1,0 +1,78 @@
+@import "../var.less";
+
+// 侧边栏整体样式。
+._.sidebar {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	transition+: transform 1s;
+	.color-on(@white);
+
+	each(@color-map, {
+		&.@{key} {
+			.color-on(@value);
+
+			& > .anchor {
+				.color-on(@value);
+			}
+		}
+	});
+
+}
+
+._.sidebar.left {
+	left: 0;
+
+	&.hide {
+		transform: translateX(-100%);
+	}
+
+	& > .anchor {
+		left: 100%;
+		.flat-border-side(left);
+	}
+}
+
+._.sidebar.right {
+	right: 0;
+
+	&.hide {
+		transform: translateX(100%);
+	}
+
+	& > .anchor {
+		right: 100%;
+		.flat-border-side(right);
+	}
+}
+
+._.sidebar.transparent {
+	@fade-value: 70%;
+
+	.color-on(fade(@white, @fade-value));
+
+	each(@color-map, {
+		&.@{key} {
+			.color-on(fade(@value, @fade-value));
+		}
+	});
+}
+
+._.sidebar.padding {
+	padding: @pad-v @pad-h;
+}
+
+._.sidebar > .anchor {
+	border-width: 0;
+	position: absolute;
+	cursor: pointer;
+	.pad-box();
+
+	&.top {
+		top: 10px;
+	}
+
+	&.bottom {
+		bottom: 10px;
+	}
+}
