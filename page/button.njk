@@ -1,0 +1,10 @@
+{% extends tpl %}
+
+{% block body %}
+<h2>按钮</h2>
+
+{% for color in colors %}
+	<button class="_ button {{ color }}">button</button>
+{% endfor %}
+
+{% endblock %}

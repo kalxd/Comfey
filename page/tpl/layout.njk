@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<title>标题占位符</title>
+		<link rel="stylesheet" href="./comfey.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<a href="button.html">按钮</a>
+			</ul>
+		</nav>
+
+		<div class="_ container">
+			{% block body %}
+			{% endblock %}
+		</div>
+
+		{% block js %}
+		{% endblock %}
+	</body>
+</html>

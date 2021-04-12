@@ -5,21 +5,8 @@ const rename = require("gulp-rename");
 
 const pkg = require("./package.json");
 
-const COLOR_SET = [
-	"white",
-	"red",
-	"green",
-	"blue",
-	"yellow",
-	"orange",
-	"purple",
-	"cyan"
-];
+const Nunjucks = require("./page/tpl/base");
 
-// nunjucks数据。
-const DATA = {
-	"colorSet": COLOR_SET
-};
 
 const buildCss = () => {
 	return gulp.src("src/comfey.less")
@@ -32,8 +19,8 @@ const buildCss = () => {
 };
 
 const buildHtml = () => {
-	return gulp.src("build/index.njk")
-		.pipe(nunjucks.compile(DATA))
+	return gulp.src("page/*.njk")
+		.pipe(nunjucks.compile(Nunjucks.globalVar))
 		.pipe(gulp.dest("dist"))
 	;
 };
@@ -47,7 +34,7 @@ const devCss = () => {
 
 const watchLess = () => gulp.watch("src/**/*.less", devCss);
 
-const watchHtml = () => gulp.watch("build/**/*.njk", buildHtml);
+const watchHtml = () => gulp.watch("page/**/*.njk", buildHtml);
 
 const watch = gulp.parallel(watchLess, watchHtml);
 

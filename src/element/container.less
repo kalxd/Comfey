@@ -1,18 +1,9 @@
-@import "../var.less";
+@import "../lib/function";
 
-.paint-segment(@color) {
-	border-color: @color;
+._.container {
+	.block-center(80%);
 }
 
-._.segment {
-	.pad-box();
-	border-width: 2px;
-	border-style: solid;
-	.paint-segment(@black);
-
-	each(@color-map, {
-		&.@{key} {
-			.paint-segment(@value);
-		}
-	});
+._.fluid.container {
+	display: block;
 }
