@@ -1,0 +1,79 @@
+/** 全局变量 */
+@radius: 4px; // 圆角
+@pad-v: .4em; // 垂直内边距
+@pad-h: .8em; // 水平内边距
+
+/** 不知道什么风格的配色 */
+@black: #161823;
+@white: #f0f0f4;
+
+@red: #db5a6b; // 海棠红
+@green: #16a951; // 石绿
+@blue: #177cb0; // 靛青
+@yellow: #faff72; // 鸭黄
+@orange: #fa8c35; // 橙色
+@purple: #801dae; // 青莲
+@cyan: #1bd1a5; // 碧色
+
+@deep-red: #c93756; // 樱桃色
+@deep-green: #057748; // 松花绿
+@deep-blue: #065279; // 靛蓝
+@deep-yellow: #fff143; // 鹅黄
+@deep-orange: #ff7500; // 橘红
+@deep-purple: #815476; // 酱紫
+@deep-cyan: #48c0a3; // 青碧
+/** 结束配色 */
+
+/** 常量 */
+@color-map: {
+	red: @red;
+	green: @green;
+	blue: @blue;
+	yellow: @yellow;
+	orange: @orange;
+	purple: @purple;
+	cyan: @cyan;
+}
+
+@deep-color-map: {
+	red: @deep-red;
+	green: @deep-green;
+	blue: @deep-blue;
+	yellow: @deep-yellow;
+	orange: @deep-orange;
+	purple: @deep-purple;
+	cyan: @deep-cyan;
+}
+/** 结束常量 */
+
+/** 常用函数 */
+
+// 根据背景色，获取醒目的前景色。
+.fg-on(@bg-color) {
+	@text-color: if(lightness(@bg-color) > 70, @black, @white);
+	color: @text-color;
+}
+
+// 在某个背景颜色上的字体颜色，
+// 如果背景颜色过深，字体明亮；反之亦如。
+.color-on(@bg-color) {
+	.fg-on(@bg-color);
+	background-color: @bg-color;
+}
+
+// 常用的内边距及边角设置。
+.pad-box() {
+	padding: @pad-v @pad-h;
+	border-radius: @radius;
+}
+
+.flat-border-side(@side) when (@side = left) {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.flat-border-side(@side) when (@side = right) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+/** 结束常用函数 */
