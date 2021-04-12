@@ -1,0 +1,17 @@
+/**
+ * 辅助类
+ *
+ * 同时允许被其它类扩展、合并。
+ */
+@import "../lib/function";
+
+// 每个方向留下空白。
+._.spacing {
+	@dirs: top, right, bottom, left;
+
+	each(@dirs, {
+		&.@{value} {
+			.spacing-to(@value);
+		}
+	});
+}

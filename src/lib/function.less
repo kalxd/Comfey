@@ -10,3 +10,8 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+// 与下个元素的间距。
+.spacing-to(@dir, @size: @gap-size) {
+	margin-@{dir}: @size;
+}
