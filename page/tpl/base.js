@@ -2,14 +2,16 @@
 
 // 支持的颜色列表。
 const COLOR_SET = [
-	"white",
-	"red",
+	"",
+	"teal",
 	"green",
 	"blue",
+	"purple",
+	"black",
 	"yellow",
 	"orange",
-	"purple",
-	"cyan"
+	"red",
+	"grey"
 ];
 
 // 模板路径。

@@ -1,8 +1,10 @@
-@import "../var.less";
+@import "../lib/const";
+@import "../lib/function";
 
 .paint-button(@color) {
 	@dark-color: darken(@color, 20%);
-	.color-on(@color);
+	.fg-base-on-bg(@color);
+	background-color: @color;
 	border-color: @color;
 
 	&:hover {
@@ -18,10 +20,12 @@
 	border-radius: 4px;
 	transition+: background-color 1s;
 	transition+: box-shadow 1s;
+	cursor: pointer;
+
 	.paint-button(@white);
 
 	// 其他颜色。
-	each(@color-map, {
+	each(@pallate-map, {
 		&.@{key} {
 			.paint-button(@value);
 		}

@@ -1,4 +1,5 @@
 /** 一些辅助函数，本身不输出任何css。 */
+@import "./const";
 
 // 让一定宽度的块元素居中。
 .block-center(@width) {
@@ -15,3 +16,60 @@
 .spacing-to(@dir, @size: @gap-size) {
 	margin-@{dir}: @size;
 }
+
+// 依据背景色得到对应的前景色。
+.fg-base-on-bg(@background-color) {
+	@s: lightness(@background-color);
+
+	color: if((@s > 70), @black, @white);
+}
+
+// 常规容器内部边距。
+.box-padding(@v-grap: .5em, @h-grap: 1em) {
+	padding: @v-grap @h-gap;
+}
+
+// 一般元素内边距。
+.element-padding(@v-grap: .4em, @h-gap: .8em) {
+	padding: @v-gap @h-gap;
+}
+
+/** 制作某一边圆角。 */
+.radius-at(left, @radius: @radius) {
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+.radius-at(top, @radius: @radius) {
+	border-top-left-radius: @radius;
+	border-top-right-radius: @radius;
+}
+
+.radius-at(right, @radius: @radius) {
+	border-top-right-radius: @radius;
+	border-bottom-right-radius: @radius;
+}
+
+.radius-at(bottom, @radius: @radius) {
+	border-bottom-left-radius: @radius;
+	border-bottom-right-radius: @radius;
+}
+/** 结束 */
+
+/** 拍扁某一边圆角。 */
+.flat-at(left) {
+	.radius-at(left, 0);
+}
+
+.flat-at(top) {
+	.radius-at(top, 0);
+}
+
+.flat-at(right) {
+	.radius-at(right, 0);
+}
+
+.flat-at(bottom) {
+	.radius-at(bottom, 0);
+}
+/** 结束 */
