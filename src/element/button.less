@@ -3,13 +3,13 @@
 
 .paint-button(@color) {
 	@dark-color: darken(@color, 20%);
+
 	.fg-base-on-bg(@color);
 	background-color: @color;
 	border-color: @color;
 
 	&:hover {
 		background-color: @dark-color;
-		box-shadow+: 0 0 10px 2px fade(@dark-color, 20%);
 	}
 }
 
@@ -21,6 +21,9 @@
 	transition+: background-color 1s;
 	transition+: box-shadow 1s;
 	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	.cube-shadow();
 
 	.paint-button(@white);
 
@@ -34,5 +37,6 @@
 
 ._.button:disabled,
 ._.button.disabled {
+	cursor: not-allowed;
 	filter: grayscale(.6);
 }

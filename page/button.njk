@@ -1,10 +1,19 @@
 {% extends tpl %}
 
 {% block body %}
-<h2 class="_ header">常规按钮</h2>
+	<h1 class="_ header">按钮</h1>
 
-{% for color in colors %}
-	<button class="_ button {{ color }}">button</button>
-{% endfor %}
+	<h2>基本按钮</h2>
 
+	{% for color in colors %}
+		<button class="_ button {{ color }}">button</button>
+	{% endfor %}
+
+	<h2>按钮状态</h2>
+
+	<h3 class="_ header">禁用</h3>
+
+	{% for color in colors %}
+		<button class="_ button {{ color }}" disabled>己被禁用</button>
+	{% endfor %}
 {% endblock %}
