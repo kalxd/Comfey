@@ -1,7 +1,9 @@
 @import "../lib/const";
+@import "../lib/function";
 
 ._.segment {
 	border-radius: @radius;
-
-	border: 1px solid @deep-white;
+	border: 1px solid @border-color;
+	.cube-shadow();
+	.box-padding();
 }
