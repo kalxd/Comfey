@@ -1,10 +1,11 @@
-@import "../var.less";
+@import "../lib/const";
 
 .paint-input(@color) {
 	@dark-color: darken(@color, 20%);
 
 	color: @color;
 	border-color: @color;
+	.cube-shadow();
 
 	&:hover {
 		border-color: @dark-color;
@@ -15,19 +16,45 @@
 	}
 }
 
-select._.input,
-input._.input {
-	.pad-box();
+._.input {
 	border-width: 1px;
 	border-style: solid;
+	border-radius: @radius;
 	transition+: color 1s;
 	transition+: border-color 1s;
 	transition+: box-shadow 1s;
+
+	.element-padding();
 	.paint-input(@black);
 
-	each(@color-map, {
+	each(@pallate-map, {
 		&.@{key} {
 			.paint-input(@value);
 		}
 	});
+}
+
+._.input.action {
+	display: inline-flex;
+	padding: 0;
+
+	& > input,
+	& > select {
+		border: none;
+		box-shadow: unset;
+		border-radius: @radius;
+	}
+
+	& > .button {
+		border-radius: 0;
+		box-shadow: unset;
+
+		&:first-child {
+			.radius-at(left);
+		}
+
+		&:last-child {
+			.radius-at(right);
+		}
+	}
 }
