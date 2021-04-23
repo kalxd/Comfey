@@ -15,3 +15,28 @@
 		}
 	});
 }
+
+// 字体相关设置。
+.text {
+	@aligns: left, center, right;
+
+	each(@aligns, {
+		&.@{value} {
+			text-align: @value;
+		}
+	});
+
+	// 浅色。
+	each(@pallate-map, {
+		&.@{key} {
+			color: @value;
+		}
+	});
+
+	// 深色。
+	each(@deep-pallate-map, {
+		&.deep.@{key} {
+			color: @value;
+		}
+	});
+}

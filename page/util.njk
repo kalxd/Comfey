@@ -1,0 +1,40 @@
+{% extends tpl %}
+
+{% block body %}
+	<h1 class="_ header">辅助类</h1>
+
+	<h2 class="_ header">与对方留白</h2>
+
+	<div>
+		<button class="_ button spacing left">向左留白</button>
+		<button class="_ button spacing top">向上留白</button>
+		<button class="_ button spacing right">向右留白</button>
+		<button class="_ button spacing bottom">向下留白</button>
+	</div>
+
+	<h3 class="_ header">字体设置</h3>
+
+	<h4 class="_ header">对齐</h4>
+
+	<div class="text left">向左对齐。</div>
+	<div class="text center">居中对齐。</div>
+	<div class="text right">向右对齐。</div>
+
+	<h4 class="_ header">颜色一览</h4>
+
+	<h5 class="_ header">浅色</h5>
+
+	<p>
+		{% for color in colors %}
+			<span class="text {{ color }}">{{ color }}</span>
+		{% endfor %}
+	</p>
+
+	<h5 class="_ header">深色</h5>
+
+	<p>
+		{% for color in colors %}
+			<span class="text deep {{ color }}">{{ color }}</span>
+		{% endfor %}
+	</p>
+{% endblock %}
